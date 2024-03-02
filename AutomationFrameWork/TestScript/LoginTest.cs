@@ -27,7 +27,14 @@ namespace AutomationFrameWork.TestScript
             Page page = new Page();
             AppConfigReader.GetBrowser();
             ObjectRepoistry.driver.Navigate().GoToUrl(AppConfigReader.getUrl());
-            ObjectRepoistry.driver.Manage().Window.Maximize();
+            try
+            {
+                ObjectRepoistry.driver.Manage().Window.Maximize();
+            }
+            catch
+            {
+
+            }
            page.EnterText(username,AppConfigReader.GetUsername());
             page.EnterText(Pasword,AppConfigReader.GetPassword());
             Thread.Sleep(1000);
